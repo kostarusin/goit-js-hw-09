@@ -26,8 +26,9 @@ const options = {
     selectedDate = selectedDates[0].getTime();
     if (selectedDate <= new Date()) {
       Notiflix.Notify.failure('Please choose a date in the future');
-    }
-    refs.startButton.disabled = false;
+    } else
+    {refs.startButton.disabled = false;
+    Notiflix.Notify.success('You choose a right date')}
   },
 };
 
@@ -38,6 +39,7 @@ function onTimerStart() {
     let currentDate = new Date();
     if (selectedDate > currentDate) {
       refs.startButton.disabled = true;
+      
 
       let dateDelta = selectedDate - currentDate;
       let dateToShow = convertMs(dateDelta);
@@ -53,6 +55,8 @@ function onTimerStart() {
       refs.daysValue.textContent = days;
     } else {
       clearInterval(intervalId);
+      Notiflix.Notify.info('Time is up');
+      refs.startButton.disabled = false;
     }
   }, 1000);
 }
