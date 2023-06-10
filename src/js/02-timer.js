@@ -28,7 +28,7 @@ const options = {
       Notiflix.Notify.failure('Please choose a date in the future');
     } else
     {refs.startButton.disabled = false;
-    Notiflix.Notify.success('You choose a right date')}
+    Notiflix.Notify.success('You choose a right date. Push start button')}
   },
 };
 
